@@ -692,7 +692,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
         return
     end
 
-	if input.KeyCode == Enum.KeyCode.V then 
+	if input.KeyCode == Enum.KeyCode.C then 
                                          local args = {
     [1] = {
         ["location"] = game:GetService("SoundService"),

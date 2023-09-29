@@ -26,6 +26,97 @@ animsets["acolyte"].idle.AnimationId = into["nd"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["nd"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["nd"].wake.AnimationId
 end)
+MainSection:NewButton("Switch to Knight's Animations", "what is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Knight's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["knight"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["knight"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["knight"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["knight"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["knight"].wake.AnimationId
+end)
+MainSection:NewButton("Switch to Thorn's Animations", "what is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Thorn's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["thorn"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["thorn"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["thorn"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["thorn"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["thorn"].wake.AnimationId
+end)
+MainSection:NewButton("Switch to Grave's Animations", "what is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Grave's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["fast_creature"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["fast_creature"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["fast_creature"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["fast_creature"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["fast_creature"].wake.AnimationId
+end)
+MainSection:NewButton("Switch to Dread's Animations", "nah is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Dread's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["scream"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["scream"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["scream"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["scream"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["scream"].wake.AnimationId
+end)
+MainSection:NewButton("Switch to Blade's Animations", "what is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Blade's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["blade"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["blade"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["blade"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["blade"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["blade"].wake.AnimationId
+end)
+MainSection:NewButton("Switch to Tox's Animations", "what is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Tox's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["acid"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["acid"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["acid"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["acid"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["acid"].wake.AnimationId
+end)
+MainSection:NewButton("Switch to Corpse's Animations", "what is what", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Corpse's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["acolyte"].attack1.AnimationId = into["creature"].attack1.AnimationId
+animsets["acolyte"].attack2.AnimationId = into["creature"].attack2.AnimationId
+animsets["acolyte"].idle.AnimationId = into["creature"].idle.AnimationId
+animsets["acolyte"].run.AnimationId = into["creature"].found.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["creature"].wake.AnimationId
+end)
 MainSection:NewButton("Switch to GM's Animations", "the title.", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'Switched';
@@ -49,8 +140,9 @@ game.StarterGui:SetCore("SendNotification", {
 animsets["acolyte"].attack1.AnimationId = into2["demon"].attack.AnimationId
 animsets["acolyte"].attack2.AnimationId = into2["demon"].attack.AnimationId
 animsets["acolyte"].idle.AnimationId = into2["demon"].start.AnimationId
-animsets["acolyte"].run.AnimationId = into2["demon"].start.AnimationId
+--animsets["acolyte"].run.AnimationId = into2["demon"].start.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["nd"].teleport.AnimationId
+animsets["acolyte"].run.AnimationId = into["nd"].anger.AnimationId
 end)
 Main2Section:NewButton("ND, GM and CF at once", "look who trying to open info :rofl:", function()
 game.StarterGui:SetCore("SendNotification", {
@@ -817,7 +909,7 @@ end)
 local CreditTab = Window:NewTab("Credits")
 local Credit = CreditTab:NewSection("credit named credit")
 Credit:NewLabel("Brik for making Knight-walker animation pack")
-Credit:NewLabel("Gab, literally me :3")
+Credit:NewLabel("Gab, literally me")
 end
 --// Detect the game by ID
 if game.PlaceId == 12389327869 then

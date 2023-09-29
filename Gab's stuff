@@ -146,7 +146,7 @@ animsets["acolyte"].run.AnimationId = into["nd"].anger.AnimationId
 end)
 Main2Section:NewButton("ND, GM and CF at once", "look who trying to open info :rofl:", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'guide';
+    Title = 'terror guide';
     Text = "press f9 for instruction n stuff";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
@@ -832,6 +832,221 @@ animsets["sword"].equip.AnimationId = into["nd"].idle.AnimationId
 animsets["sword"].sprint.AnimationId = into["nd"].anger.AnimationId
 animsets["sword"].block1.AnimationId = into["nd"].guard.AnimationId
 animsets["sword"].block2.AnimationId = into["nd"].guard.AnimationId
+end)
+Main2Section:NewButton("every anomalies special at once", "look who trying to open info :rofl:", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'anomaly guide';
+    Text = "press f9 for instruction n stuff";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+print([[
+
+
+---== keybinds ==---
+R - knight parry
+T - blade guard
+Y - tox throw
+U - dread scream
+G - thorn shoot
+
+]])
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.R then 
+                                                local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities", [2] = "knight"
+        },
+        ["soundfile"] = "chatter1"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye2 = game:GetService("ReplicatedStorage").sound_library.abilities.knight.chatter1
+ye2:clone().Parent = game:GetService("SoundService")
+ye2:Play()
+                                                local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities", 
+        },
+        ["soundfile"] = "parry1"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.abilities.parry
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.ai_animations["knight"].parry)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.T then 
+                                                local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities", [2] = "blade"
+        },
+        ["soundfile"] = "chatter3"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.abilities.blade.chatter3
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.ai_animations["blade"].guard)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.Y then 
+                                                local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities", [2] = "acid"
+        },
+        ["soundfile"] = "chatter4"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.abilities.acid.chatter4
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+                                        local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities",
+        },
+        ["soundfile"] = "vialthrow"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye2 = game:GetService("ReplicatedStorage").sound_library.abilities.vialthrow
+ye2:clone().Parent = game:GetService("SoundService")
+ye2:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.ai_animations["acid"].acidthrow)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.U then 
+                                                local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities",
+        },
+        ["soundfile"] = "scream_screech"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.abilities.scream_screech
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+                                               local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities",
+        },
+        ["soundfile"] = "scream_tinnitus"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye2 = game:GetService("ReplicatedStorage").sound_library.abilities.scream_tinnitus
+ye2:clone().Parent = game:GetService("SoundService")
+ye2:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.ai_animations["scream"].scream)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.G then 
+                                                       local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities",
+        },
+        ["soundfile"] = "stake_noise"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.abilities.stake_noise
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+                                               local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities",
+        },
+        ["soundfile"] = "stake_shoot"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye2 = game:GetService("ReplicatedStorage").sound_library.abilities.stake_shoot
+ye2:clone().Parent = game:GetService("SoundService")
+ye2:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.ai_animations["thorn"].shoot)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+    wait(1)
+                                                   local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities",
+        },
+        ["soundfile"] = "stake_sound"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye3 = game:GetService("ReplicatedStorage").sound_library.abilities.stake_sound
+ye3:clone().Parent = game:GetService("SoundService")
+ye3:Play()
+	end
+end)
 end)
 Main2Section:NewButton("knight's dash (execute ingame)", "it's BLANK", function()
 game.StarterGui:SetCore("SendNotification", {

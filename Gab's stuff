@@ -5,7 +5,7 @@ local Window = Library.CreateLib("Gab's stuff", "GrapeTheme")
 local Main = Window:NewTab("Main")
 local MainSection = Main:NewSection("for acolyte")
 local Main3Section = Main:NewSection("for mercenery (buy htf blade for it to work)")
-local Main2Section = Main:NewSection("terrors, anomalies movement")
+local Main2Section = Main:NewSection("terrors, anomalies movement (execute 1 of them except dash)")
 --// The stuff
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
@@ -1004,7 +1004,7 @@ animsets["sword"].sprint.AnimationId = into["nd"].anger.AnimationId
 animsets["sword"].block1.AnimationId = into["nd"].guard.AnimationId
 animsets["sword"].block2.AnimationId = into["nd"].guard.AnimationId
 end)
-Main2Section:NewButton("every anomaly's special at once", "look who trying to open info :rofl:", function()
+Main2Section:NewButton("all anomaly's special at once", "look who trying to open info :rofl:", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'anomaly guide';
     Text = "press f9 for instruction n stuff";
@@ -1219,7 +1219,7 @@ ye3:Play()
 	end
 end)
 end)
-Main2Section:NewButton("knight's dash (execute ingame)", "it's BLANK", function()
+Main2Section:NewButton("knight's dash (execute in lobby)", "it's BLANK", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'executed';
     Text = "press space bar to perform knight's dash";

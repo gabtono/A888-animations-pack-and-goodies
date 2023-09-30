@@ -1282,7 +1282,7 @@ ye:Play()
         task.wait(.2)
         bodyPosition:Destroy()
 
-        task.wait(.8)
+        task.wait(.2)
         DashCD = false
   end
 end)

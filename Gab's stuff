@@ -1295,7 +1295,7 @@ end)
 local CreditTab = Window:NewTab("Credits")
 local Credit = CreditTab:NewSection("credit named credit")
 Credit:NewLabel("Brik for making Knight-walker animation pack")
-Credit:NewLabel("Gab, literally me :3")
+Credit:NewLabel("Gab, literally me")
 end
 --// Detect the game by ID
 if game.PlaceId == 12389327869 then

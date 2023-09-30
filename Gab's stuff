@@ -5,7 +5,7 @@ local Window = Library.CreateLib("Gab's stuff", "GrapeTheme")
 local Main = Window:NewTab("Main")
 local MainSection = Main:NewSection("for acolyte")
 local Main3Section = Main:NewSection("for mercenery (buy htf blade for it to work)")
-local Main2Section = Main:NewSection("terrors, anomalies movement (execute 1 of them except dash)")
+local Main2Section = Main:NewSection("terrors, anomalies movement (execute 1, except dash)")
 --// The stuff
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")

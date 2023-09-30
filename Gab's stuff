@@ -3,140 +3,254 @@ function Script()
 local Window = Library.CreateLib("Gab's stuff", "GrapeTheme")
 --// Main
 local Main = Window:NewTab("Main")
-local MainSection = Main:NewSection("animations for acolyte")
-local Main3Section = Main:NewSection("animations for mercenery (buy htf blade for it to work)")
-local Main2Section = Main:NewSection("terrors/anomalies movement")
+local MainSection = Main:NewSection("for acolyte")
+local Main3Section = Main:NewSection("for mercenery (buy htf blade for it to work)")
+local Main2Section = Main:NewSection("terrors, anomalies movement")
 --// The stuff
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = game.Players.LocalPlayer
+local soundinto = ReplicatedStorage.sound_library.abilities
+local soundinto2 = ReplicatedStorage.sound_library.terrors
 local animsets = ReplicatedStorage.animation_sets
+local soundsets = ReplicatedStorage.sound_library.acolytes
+local soundrev = ReplicatedStorage.sound_library.acolytes
 local into2 = ReplicatedStorage.animation_sets.terror
 local into = ReplicatedStorage.animation_sets.ai_animations
-MainSection:NewButton("Switch to ND'S (A888) Animations", "why do u need info, the title says it all", function()
+MainSection:NewButton("Become Night Demon (A888)", "why do u need info, the title says it all", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using ND's (A888) animations";
+    Title = 'BIG Promotion';
+    Text = "You are now promoted to Night Demon (A888)";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto2["demon"].attack1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto2["demon"].charge1.SoundId
+soundsets["voices"].noise3.SoundId = soundinto2["demon"].charge3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto2["demon"].damage1.SoundId
+soundsets["voices"].chat2.SoundId = soundinto2["demon"].damage2.SoundId
+soundsets["voices"].chat3.SoundId = soundinto2["demon"].damage3.SoundId
+soundsets["voices"].line1.SoundId = soundinto2["demon"].damage1.SoundId
+soundsets["voices"].line2.SoundId = soundinto2["demon"].damage2.SoundId
+soundsets["voices"].line3.SoundId = soundinto2["demon"].damage3.SoundId
+soundsets["voices"].line4.SoundId = soundinto2["demon"].damage4.SoundId
+soundsets["voices"].line5.SoundId = soundinto2["demon"].damage1.SoundId
 animsets["acolyte"].attack1.AnimationId = into["nd"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["nd"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["nd"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["nd"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["nd"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Knight's Animations", "what is what", function()
+MainSection:NewButton("Become Knight-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Knight's animations";
+    Title = 'Promotion';
+    Text = "You are now promoted to Knight";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["knight"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["knight"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["knight"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["knight"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["knight"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["knight"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["knight"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["knight"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["knight"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["knight"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["knight"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Thorn's Animations", "what is what", function()
+MainSection:NewButton("Become Thorn-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Thorn's animations";
+    Title = 'Promotion';
+    Text = "You are now promoted to Thorn";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["thorn"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["thorn"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["thorn"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["thorn"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["thorn"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["thorn"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["thorn"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["thorn"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["thorn"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["thorn"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["thorn"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Grave's Animations", "what is what", function()
+MainSection:NewButton("Become Grave-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Grave's animations";
+    Title = 'Promotion';
+    Text = "You are now promoted to Grave";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["faster"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["faster"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["faster"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["faster"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["faster"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["faster"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["fast_creature"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["fast_creature"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["fast_creature"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["fast_creature"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["fast_creature"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Dread's Animations", "nah is what", function()
+MainSection:NewButton("Become Dread-walker", "nah is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Dread's animations";
+    Title = 'Promotion';
+    Text = "You are now promoted to Dread";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["scream"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["scream"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["scream"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["scream"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["scream"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["scream"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["scream"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["scream"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["scream"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["scream"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["scream"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Blade's Animations", "what is what", function()
+MainSection:NewButton("Become Blade-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Blade's animations";
+    Title = 'Promotion';
+    Text = "You are now promoted to Blade";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["blade"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["blade"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["blade"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["blade"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["blade"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["blade"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["blade"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["blade"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["blade"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["blade"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["blade"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Tox's Animations", "what is what", function()
+MainSection:NewButton("Become Tox-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Tox's animations";
+    Title = 'Promotion';
+    Text = "You are now promoted to Tox";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["acid"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["acid"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["acid"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["acid"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["acid"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["acid"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["acid"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["acid"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["acid"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["acid"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["acid"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to Corpse's Animations", "what is what", function()
+MainSection:NewButton("Become Corpse-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using Corpse's animations";
+    Title = 'Demotion';
+    Text = "You are now demoted to Corpse";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto["grave"].chatter1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto["grave"].chatter2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto["grave"].chatter3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto["grave"].chatter2.SoundId
+soundsets["voices"].chat2.SoundId = soundinto["grave"].chatter3.SoundId
+soundsets["voices"].chat3.SoundId = soundinto["grave"].chatter4.SoundId
+soundsets["voices"].line1.SoundId = soundrev["voices"].line1.SoundId
+soundsets["voices"].line2.SoundId = soundrev["voices"].line2.SoundId
+soundsets["voices"].line3.SoundId = soundrev["voices"].line3.SoundId
+soundsets["voices"].line4.SoundId = soundrev["voices"].line4.SoundId
+soundsets["voices"].line5.SoundId = soundrev["voices"].line5.SoundId
 animsets["acolyte"].attack1.AnimationId = into["creature"].attack1.AnimationId
 animsets["acolyte"].attack2.AnimationId = into["creature"].attack2.AnimationId
 animsets["acolyte"].idle.AnimationId = into["creature"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["creature"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["creature"].wake.AnimationId
 end)
-MainSection:NewButton("Switch to GM's Animations", "the title.", function()
+MainSection:NewButton("Become Grave Mother", "the title.", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using GM's animations";
+    Title = 'SCRAPPED Promotion';
+    Text = "You are now promoted to Grave Mother";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto2["mother"].attack2.SoundId
+soundsets["voices"].noise2.SoundId = soundinto2["mother"].attack2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto2["mother"].axe2.SoundId
+soundsets["voices"].chat1.SoundId = soundinto2["mother"].damage1.SoundId
+soundsets["voices"].chat2.SoundId = soundinto2["mother"].damage2.SoundId
+soundsets["voices"].chat3.SoundId = soundinto2["mother"].damage3.SoundId
+soundsets["voices"].line1.SoundId = soundinto2["mother"].damage1.SoundId
+soundsets["voices"].line2.SoundId = soundinto2["mother"].damage2.SoundId
+soundsets["voices"].line3.SoundId = soundinto2["mother"].damage3.SoundId
+soundsets["voices"].line4.SoundId = soundinto2["mother"].damage4.SoundId
+soundsets["voices"].line5.SoundId = soundinto2["mother"].damage1.SoundId
 animsets["acolyte"].attack1.AnimationId = into2["mother"].attack.AnimationId
 animsets["acolyte"].attack2.AnimationId = into2["mother"].attack.AnimationId
 animsets["acolyte"].idle.AnimationId = into2["mother"].start.AnimationId
 animsets["acolyte"].run.AnimationId = into2["mother"].start.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["nd"].teleport.AnimationId
 end)
-MainSection:NewButton("Switch to ND's (AA) Animations", "look at the title.. again.", function()
+MainSection:NewButton("Become Night Demon (AA)", "look at the title.. again.", function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = 'Switched';
-    Text = "You are now using ND's (AA) animations";
+    Title = 'ALTERNATE BIG Promotion';
+    Text = "You are now promoted to Night Demon (AA)";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
+soundsets["voices"].noise1.SoundId = soundinto2["demon"].attack1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto2["demon"].charge1.SoundId
+soundsets["voices"].noise3.SoundId = soundinto2["demon"].charge3.SoundId
+soundsets["voices"].chat1.SoundId = soundinto2["demon"].damage1.SoundId
+soundsets["voices"].chat2.SoundId = soundinto2["demon"].damage2.SoundId
+soundsets["voices"].chat3.SoundId = soundinto2["demon"].damage3.SoundId
+soundsets["voices"].line1.SoundId = soundinto2["demon"].damage1.SoundId
+soundsets["voices"].line2.SoundId = soundinto2["demon"].damage2.SoundId
+soundsets["voices"].line3.SoundId = soundinto2["demon"].damage3.SoundId
+soundsets["voices"].line4.SoundId = soundinto2["demon"].damage4.SoundId
+soundsets["voices"].line5.SoundId = soundinto2["demon"].damage1.SoundId
 animsets["acolyte"].attack1.AnimationId = into2["demon"].attack.AnimationId
 animsets["acolyte"].attack2.AnimationId = into2["demon"].attack.AnimationId
 animsets["acolyte"].idle.AnimationId = into2["demon"].start.AnimationId
@@ -168,10 +282,11 @@ M - demon crouch
 B - grave crouch
 [ (left bracket) - alternate demon attack
 ] (right bracket) - grave requiem
-B - grave defeated
 X - corpseflower/bloom roar
-V - corpseflower/bloom defeated
+V - grave defeated
 L - grave axe throw
+C - grave attack
+Z - corpseflower/bloom defeated
 
 ]])
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
@@ -518,7 +633,24 @@ ye2:Play()
 	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.ai_animations["nd"].rage)
     playerAnimation.Priority = Enum.AnimationPriority.Action
     playerAnimation:Play()
-    wait(1.5)
+    wait(1)
+                            local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "abilities", [2] = "ndemon"
+        },
+        ["soundfile"] = "rage_sword"
+    }
+}
+
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye4 = game:GetService("ReplicatedStorage").sound_library.abilities.ndemon.rage_sword
+ye4:clone().Parent = game:GetService("SoundService")
+ye4:Play()
+
+    wait(0.5)
                                    local args = {
     [1] = {
         ["location"] = game:GetService("SoundService"),
@@ -785,6 +917,45 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     end
 
 	if input.KeyCode == Enum.KeyCode.C then 
+	                                         local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "terrors", [2] = "mother"
+        },
+        ["soundfile"] = "swing"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.terrors.mother.swing
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+                                         local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "terrors", [2] = "mother"
+        },
+        ["soundfile"] = "attack1"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye2 = game:GetService("ReplicatedStorage").sound_library.terrors.mother.attack1
+ye2:clone().Parent = game:GetService("SoundService")
+ye2:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.terror["mother"].attack)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.Z then 
                                          local args = {
     [1] = {
         ["location"] = game:GetService("SoundService"),
@@ -833,7 +1004,7 @@ animsets["sword"].sprint.AnimationId = into["nd"].anger.AnimationId
 animsets["sword"].block1.AnimationId = into["nd"].guard.AnimationId
 animsets["sword"].block2.AnimationId = into["nd"].guard.AnimationId
 end)
-Main2Section:NewButton("every anomalies special at once", "look who trying to open info :rofl:", function()
+Main2Section:NewButton("every anomaly's special at once", "look who trying to open info :rofl:", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'anomaly guide';
     Text = "press f9 for instruction n stuff";
@@ -1124,7 +1295,7 @@ end)
 local CreditTab = Window:NewTab("Credits")
 local Credit = CreditTab:NewSection("credit named credit")
 Credit:NewLabel("Brik for making Knight-walker animation pack")
-Credit:NewLabel("Gab, literally me")
+Credit:NewLabel("Gab, literally me :3")
 end
 --// Detect the game by ID
 if game.PlaceId == 12389327869 then

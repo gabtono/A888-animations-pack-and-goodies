@@ -41,6 +41,30 @@ animsets["acolyte"].idle.AnimationId = into["nd"].idle.AnimationId
 animsets["acolyte"].run.AnimationId = into["nd"].found.AnimationId
 animsets["acolyte"].spawn.AnimationId = into["nd"].wake.AnimationId
 end)
+MainSection:NewButton("Become Corpseflower", "why do u need info, the title says it all", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'SCRAPPED Promotion';
+    Text = "You are now promoted to Corpseflower";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+soundsets["voices"].noise1.SoundId = soundinto2["bloom"].attack1.SoundId
+soundsets["voices"].noise2.SoundId = soundinto2["bloom"].attack2.SoundId
+soundsets["voices"].noise3.SoundId = soundinto2["bloom"].jump.SoundId
+soundsets["voices"].chat1.SoundId = soundinto2["bloom"].damage1.SoundId
+soundsets["voices"].chat2.SoundId = soundinto2["bloom"].damage2.SoundId
+soundsets["voices"].chat3.SoundId = soundinto2["bloom"].damage3.SoundId
+soundsets["voices"].line1.SoundId = soundinto2["bloom"].damage1.SoundId
+soundsets["voices"].line2.SoundId = soundinto2["bloom"].damage2.SoundId
+soundsets["voices"].line3.SoundId = soundinto2["bloom"].damage3.SoundId
+soundsets["voices"].line4.SoundId = soundinto2["bloom"].damage2.SoundId
+soundsets["voices"].line5.SoundId = soundinto2["bloom"].damage1.SoundId
+animsets["acolyte"].attack1.AnimationId = into2["bloom"].attack.AnimationId
+animsets["acolyte"].attack2.AnimationId = into2["bloom"].attack.AnimationId
+animsets["acolyte"].idle.AnimationId = into2["bloom"].start.AnimationId
+animsets["acolyte"].run.AnimationId = into2["bloom"].start.AnimationId
+animsets["acolyte"].spawn.AnimationId = into["nd"].teleport.AnimationId
+end)
 MainSection:NewButton("Become Knight-walker", "what is what", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'Promotion';
@@ -287,6 +311,7 @@ V - grave defeated
 L - grave axe throw
 C - grave attack
 Z - corpseflower/bloom defeated
+Q - corpseflower/bloom lunge
 
 ]])
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
@@ -971,6 +996,31 @@ local ye = game:GetService("ReplicatedStorage").sound_library.terrors.bloom.defe
 ye:clone().Parent = game:GetService("SoundService")
 ye:Play()
 	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.terror["bloom"].defeat)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.Q then 
+                                         local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "terrors", [2] = "bloom"
+        },
+        ["soundfile"] = "lunge"
+    }
+} 
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local ye = game:GetService("ReplicatedStorage").sound_library.terrors.bloom.lunge
+ye:clone().Parent = game:GetService("SoundService")
+ye:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets.terror["bloom"].alt)
     playerAnimation.Priority = Enum.AnimationPriority.Action
     playerAnimation:Play()
 	end

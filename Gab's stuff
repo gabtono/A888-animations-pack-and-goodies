@@ -5,7 +5,8 @@ local Window = Library.CreateLib("Gab's stuff", "GrapeTheme")
 local Main = Window:NewTab("Main")
 local MainSection = Main:NewSection("for acolyte")
 local Main3Section = Main:NewSection("for mercenery (buy htf blade for it to work)")
-local Main2Section = Main:NewSection("terrors, anomalies movement (execute 1, except dash)")
+local Main2Section = Main:NewSection("terrors, anomalies movement (execute 1)")
+local Main4Section = Main:NewSection("subject and anomaly abilities (execute 1)")
 --// The stuff
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
@@ -1459,7 +1460,84 @@ ye3:Play()
 	end
 end)
 end)
-Main2Section:NewButton("knight's dash (execute in lobby)", "it's BLANK", function()
+Main4Section:NewButton("subject's jump/dash", "it's BLANK", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'executed';
+    Text = "hold shift and press space bar to perform subject's jump/dash";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+    })
+    local player = game.Players.LocalPlayer
+local dashPower = 85
+local dashduration = 0 -- this part useless af, why did i do this
+local debounce = false
+local function onAction()
+    if debounce then
+        return
+    end
+    debounce = true
+    local character = player.Character
+    if not character then
+        debounce = false
+        return
+    end
+    local humanoid = character:FindFirstChildOfClass("Humanoid")
+    if not humanoid then
+        debounce = false
+        return
+    end
+    local currentStates = humanoid:GetState()
+    local shouldClearStates = currentStates ~= Enum.HumanoidStateType.None and currentStates ~= Enum.HumanoidStateType.RunningNoPhysics
+    if shouldClearStates then
+        humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+        wait()
+    end
+    local mouse = player:GetMouse()
+    local direction = (mouse.Hit.Position - character.HumanoidRootPart.Position).unit
+    local velocity = direction * dashPower
+    humanoid.PlatformStand = true
+    humanoid.AutoRotate = false
+    humanoid.RootPart.Velocity = velocity
+    wait(dashDuration)
+    humanoid.PlatformStand = false
+    humanoid.AutoRotate = true
+    if shouldClearStates then
+        humanoid:ChangeState(currentStates)
+    end
+    debounce = false
+end
+local dash = Enum.KeyCode.Space
+local shift = Enum.KeyCode.LeftShift
+local shifted = false
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == shift then
+        shifted = true
+    end
+    if input.KeyCode == dash and shifted then
+        onAction()
+                local args = {
+    [1] = {
+        ["location"] = game:GetService("SoundService"),
+        ["directory"] = {
+            [1] = "movement",
+        },
+        ["soundfile"] = "anomaly_jump"
+    }
+}
+
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+local sound = game:GetService("ReplicatedStorage").sound_library.movement.anomaly_jump
+sound:clone().Parent = game:GetService("SoundService")
+sound:Play()
+    end
+end)
+game:GetService("UserInputService").InputEnded:Connect(function(input)
+    if input.KeyCode == shift then
+        shifted = false
+    end
+end)
+end)
+Main4Section:NewButton("knight's dash (execute in lobby)", "it's BLANK", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'executed';
     Text = "press space bar to perform knight's dash";

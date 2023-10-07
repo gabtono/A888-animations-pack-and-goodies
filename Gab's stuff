@@ -3,6 +3,8 @@ function Script()
 local Window = Library.CreateLib("Gab's stuff", "GrapeTheme")
 --// Main
 local Main = Window:NewTab("Main")
+local Homemade = Window:NewTab("Homemade")
+local HomemadeSection = Homemade:NewSection("something i've made for better gameplay")
 local MainSection = Main:NewSection("for acolyte")
 local Main3Section = Main:NewSection("for mercenery (buy htf blade for it to work)")
 local Main2Section = Main:NewSection("terrors, anomalies movement (execute 1)")
@@ -1747,6 +1749,41 @@ end)
 localPlayer.Character.Humanoid.Died:Connect(function()
 DashCrap:Disconnect()
 end)
+end)
+HomemadeSection:NewButton("fullbrightness", "it's BLANK", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'executed';
+    Text = "now you can see the darkness";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+    })
+local lighting = game:GetService("Lighting")
+lighting.Brightness = 1
+lighting.GlobalShadows = false
+lighting.OutdoorAmbient = Color3.new(1, 1, 1)
+for _, material in ipairs(Enum.Material:GetEnumItems()) do
+    lighting:GetMaterial(material).Diffuse = Color3.new(1, 1, 1)
+end
+end)
+HomemadeSection:NewButton("infinite jump", "it's BLANK", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'executed';
+    Text = "now you can jump while in midair";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+    })
+local player = game.Players.LocalPlayer
+local isJumping = false
+local function handleJump()
+    if not isJumping and player.Character and player.Character:FindFirstChild("Humanoid") then
+        local humanoid = player.Character.Humanoid
+        isJumping = true
+        humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        wait(0.1)
+        isJumping = false
+    end
+end
+game:GetService("UserInputService").JumpRequest:Connect(handleJump)
 end)
 --// Credits
 local CreditTab = Window:NewTab("Credits")

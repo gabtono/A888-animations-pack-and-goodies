@@ -304,7 +304,7 @@ G - demon roar
 J - demon stomp
 M - demon crouch
 [ - alternate demon attack
-. - demon hurt
+' - demon hurt
 E - flower/bloom attack
 grev mothar:
 C - grave attack
@@ -370,7 +370,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
         return
     end
 
-	if input.KeyCode == Enum.KeyCode.Period then
+	if input.KeyCode == Enum.KeyCode.Quote then
 	local sounds = {
    {
         directory = {"terrors", "demon"},

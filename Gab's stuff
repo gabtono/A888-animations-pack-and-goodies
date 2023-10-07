@@ -1868,11 +1868,15 @@ local function handleJump()
 end
 game:GetService("UserInputService").JumpRequest:Connect(handleJump)
 end)
---// Credits
 local CreditTab = Window:NewTab("Credits")
 local Credit = CreditTab:NewSection("credit named credit")
 Credit:NewLabel("Brik for making Knight-walker animation pack")
 Credit:NewLabel("Gab, literally me")
+local SettingsTab = Window:NewTab("Settings")
+local Settings = SettingsTab:NewSection("toggling the ui")
+Settings:NewKeybind("close/open ui", "pls set a bind with ur liking", Enum.KeyCode.Return, function()
+	Library:ToggleUI()
+end)
 end
 --// Detect the game by ID
 if game.PlaceId == 12389327869 then

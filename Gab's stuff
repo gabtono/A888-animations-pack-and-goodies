@@ -294,28 +294,167 @@ print([[
 
 
 ---== keybinds ==---
+noght demon:
 R - demon slam
-E - corpseflower/bloom attack
 T - demon slashes
 Y - demon rage
-U - charger
+U - demon charger
 H - demon defeated
 G - demon roar
 J - demon stomp
-K - appears
-N - disappears
 M - demon crouch
-B - grave crouch
-[ (left bracket) - alternate demon attack
-] (right bracket) - grave requiem
-X - corpseflower/bloom roar
+[ - alternate demon attack
+. - demon hurt
+E - flower/bloom attack
+grev mothar:
+C - grave attack
 V - grave defeated
 L - grave axe throw
-C - grave attack
-Z - corpseflower/bloom defeated
-Q - corpseflower/bloom lunge
+] - grave requiem
+B - grave crouch
+; - grave hurt
+deadbodybloom (corpseflower):
+X - flower/bloom roar
+Z - flower/bloom defeated
+Q - flower/bloom lunge
+, - flower/bloom hurt
+terror stuff:
+K - appears
+N - disappears
+
 
 ]])
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.Comma then
+	local sounds = {
+   {
+        directory = {"terrors", "bloom"},
+        soundfile = "damage1"
+    },
+    {
+        directory = {"terrors", "bloom"},
+        soundfile = "damage2"
+    },
+      {
+        directory = {"terrors", "bloom"},
+        soundfile = "damage3"
+    }
+}
+
+local randomSound = sounds[math.random(1, #sounds)]
+
+local args = {
+    {
+        location = game:GetService("SoundService"),
+        directory = randomSound.directory,
+        soundfile = randomSound.soundfile
+    }
+}
+
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local soundToPlay = game:GetService("ReplicatedStorage").sound_library[randomSound.directory[1]][randomSound.directory[2]][randomSound.soundfile]
+soundToPlay:Clone().Parent = game:GetService("SoundService")
+soundToPlay:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets["ai_animations"].meleestagger)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.Period then
+	local sounds = {
+   {
+        directory = {"terrors", "demon"},
+        soundfile = "damage1"
+    },
+    {
+        directory = {"terrors", "demon"},
+        soundfile = "damage2"
+    },
+      {
+        directory = {"terrors", "demon"},
+        soundfile = "damage3"
+    },
+         {
+        directory = {"terrors", "demon"},
+        soundfile = "damage4"
+    }
+}
+
+local randomSound = sounds[math.random(1, #sounds)]
+
+local args = {
+    {
+        location = game:GetService("SoundService"),
+        directory = randomSound.directory,
+        soundfile = randomSound.soundfile
+    }
+}
+
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local soundToPlay = game:GetService("ReplicatedStorage").sound_library[randomSound.directory[1]][randomSound.directory[2]][randomSound.soundfile]
+soundToPlay:Clone().Parent = game:GetService("SoundService")
+soundToPlay:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets["ai_animations"].meleestagger)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent == true then
+        return
+    end
+
+	if input.KeyCode == Enum.KeyCode.Semicolon then
+	local sounds = {
+   {
+        directory = {"terrors", "mother"},
+        soundfile = "damage1"
+    },
+    {
+        directory = {"terrors", "mother"},
+        soundfile = "damage2"
+    },
+      {
+        directory = {"terrors", "mother"},
+        soundfile = "damage3"
+    },
+         {
+        directory = {"terrors", "mother"},
+        soundfile = "damage4"
+    }
+}
+
+local randomSound = sounds[math.random(1, #sounds)]
+
+local args = {
+    {
+        location = game:GetService("SoundService"),
+        directory = randomSound.directory,
+        soundfile = randomSound.soundfile
+    }
+}
+
+workspace.mainGame.remotes.audio_relay:FireServer(unpack(args))
+
+local soundToPlay = game:GetService("ReplicatedStorage").sound_library[randomSound.directory[1]][randomSound.directory[2]][randomSound.soundfile]
+soundToPlay:Clone().Parent = game:GetService("SoundService")
+soundToPlay:Play()
+	local playerAnimation = LocalPlayer.Character.Humanoid.Animator:LoadAnimation(game.ReplicatedStorage.animation_sets["ai_animations"].stagger)
+    playerAnimation.Priority = Enum.AnimationPriority.Action
+    playerAnimation:Play()
+	end
+end)
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     if gameProcessedEvent == true then
         return

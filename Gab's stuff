@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 function Script()
-local Window = Library.CreateLib("Gab's stuff", "GrapeTheme")
+local Window = Library.CreateLib("purito karamell", "GrapeTheme")
 --// Main
 local Main = Window:NewTab("Main")
 local Homemade = Window:NewTab("Homemade")
@@ -307,7 +307,6 @@ J - demon stomp
 M - demon crouch
 [ - alternate demon attack
 ' - demon hurt
-E - flower/bloom attack
 grev mothar:
 C - grave attack
 V - grave defeated
@@ -320,6 +319,7 @@ X - flower/bloom roar
 Z - flower/bloom defeated
 Q - flower/bloom lunge
 , - flower/bloom hurt
+E - flower/bloom attack
 terror stuff:
 K - appears
 N - disappears
@@ -1358,7 +1358,7 @@ ye:Play()
 	end
 end)
 end)
-Main3Section:NewButton("Switch to GM's Animations", "...", function()
+Main3Section:NewButton("Switch to GM's Animations (use htf)", "...", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'Switched';
     Text = "You are now using GM's animations";
@@ -1372,19 +1372,46 @@ animsets["sword"].swing2.AnimationId = into["mother"].attack.AnimationId
 animsets["sword"].block1.AnimationId = into["mother"].alt.AnimationId
 animsets["sword"].block2.AnimationId = into["mother"].alt.AnimationId
 end)
-Main3Section:NewButton("Switch to ND's Animations", "...", function()
+Main3Section:NewButton("Switch to Blade's Animations (use shield)", "...", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Blade's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["shield"].swing1.AnimationId = into["blade"].attack1.AnimationId
+animsets["shield"].equip.AnimationId = into["blade"].idle.AnimationId
+animsets["shield"].sprint.AnimationId = into["blade"].found.AnimationId
+animsets["shield"].block1.AnimationId = into["blade"].guard.AnimationId
+animsets["shield"].block2.AnimationId = into["blade"].guard.AnimationId
+end)
+Main3Section:NewButton("Switch to Knight's Animations (use htf)", "...", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'Switched';
+    Text = "You are now using Knight's animations";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+})
+animsets["sword"].swing1.AnimationId = into["knight"].attack1.AnimationId
+animsets["sword"].swing2.AnimationId = into["knight"].attack2.AnimationId
+animsets["sword"].equip.AnimationId = into["knight"].idle.AnimationId
+animsets["sword"].sprint.AnimationId = into["knight"].found.AnimationId
+animsets["sword"].block1.AnimationId = into["knight"].parry.AnimationId
+animsets["sword"].block2.AnimationId = into["knight"].parry.AnimationId
+end)
+Main3Section:NewButton("Switch to ND's Animations (use bayonet)", "...", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'Switched';
     Text = "You are now using ND's animations";
     Icon = "rbxassetid://2541869220";
     Duration = 5;
 })
-animsets["sword"].swing1.AnimationId = into["nd"].attack1.AnimationId
-animsets["sword"].swing2.AnimationId = into["nd"].attack2.AnimationId
-animsets["sword"].equip.AnimationId = into["nd"].idle.AnimationId
-animsets["sword"].sprint.AnimationId = into["nd"].anger.AnimationId
-animsets["sword"].block1.AnimationId = into["nd"].guard.AnimationId
-animsets["sword"].block2.AnimationId = into["nd"].guard.AnimationId
+animsets["anomalyknife"].swing1.AnimationId = into["nd"].attack1.AnimationId
+animsets["anomalyknife"].swing2.AnimationId = into["nd"].attack2.AnimationId
+animsets["anomalyknife"].equip.AnimationId = into["nd"].idle.AnimationId
+--animsets["anomalyknife"].sprint.AnimationId = into["nd"].anger.AnimationId
+animsets["anomalyknife"].block1.AnimationId = into["nd"].guard.AnimationId
+animsets["anomalyknife"].block2.AnimationId = into["nd"].guard.AnimationId
 end)
 Main2Section:NewButton("all anomaly's special at once", "look who trying to open info :rofl:", function()
 game.StarterGui:SetCore("SendNotification", {
@@ -1848,6 +1875,17 @@ end
  
 createFlex()
 end)
+HomemadeSection:NewButton("unlock 3rd person", "it's BLANK", function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = 'executed';
+    Text = "press o or i to zoom out or zoom in";
+    Icon = "rbxassetid://2541869220";
+    Duration = 5;
+    })
+game.Workspace.Camera.CameraType = "Custom"
+game.Players.LocalPlayer.CameraMode = "Classic"
+game.Players.LocalPlayer.CameraMaxZoomDistance = 150
+end)
 HomemadeSection:NewButton("infinite jump", "it's BLANK", function()
 game.StarterGui:SetCore("SendNotification", {
     Title = 'executed';
@@ -1870,8 +1908,7 @@ game:GetService("UserInputService").JumpRequest:Connect(handleJump)
 end)
 local CreditTab = Window:NewTab("Credits")
 local Credit = CreditTab:NewSection("credit named credit")
-Credit:NewLabel("Brik for making Knight-walker animation pack")
-Credit:NewLabel("Gab, literally me")
+Credit:NewLabel("puritoooshinrooo(made the entire thing! free to call me a nerd 3:<)")
 local SettingsTab = Window:NewTab("Settings")
 local Settings = SettingsTab:NewSection("toggling the ui")
 Settings:NewKeybind("close/open ui", "pls set a bind with ur liking", Enum.KeyCode.Return, function()
